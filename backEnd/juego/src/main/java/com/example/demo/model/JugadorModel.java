@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
+import net.bytebuddy.implementation.bind.annotation.Default;
 @Entity
 public class JugadorModel {
 
