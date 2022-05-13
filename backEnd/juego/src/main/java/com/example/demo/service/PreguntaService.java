@@ -13,19 +13,16 @@ import com.example.demo.repository.PreguntasRepository;
 public class PreguntaService {
 	@Autowired
 	PreguntasRepository repositorio;
-	List<Preguntas> lista = new ArrayList<>();
+
 	
 	public List<Preguntas> listarPreguntas(){
 		return repositorio.findAll();
 	}
 	
-	public void setPreguntas(List<Preguntas> preguntar) {
-		lista = preguntar;
+	public Preguntas Guardar(Preguntas preguntas){
+		return repositorio.save(preguntas);
 	}
 	
-	public List<Preguntas> getPreguntas() {
-		return lista;
-	}
 	
 	
 }

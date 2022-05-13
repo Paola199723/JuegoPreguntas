@@ -19,11 +19,11 @@ public class Preguntas {
 	String Opcion1;
 	String Opcion2;
 	String Opcion3;
-	String Opcion4;
+
 	
 	
 	public Preguntas(Integer nivel, String categoria, String pregunta, String respuesta, String opcion1, String opcion2,
-			String opcion3, String opcion4) {
+			String opcion3) {
 		super();
 		Nivel = nivel;
 		Categoria = categoria;
@@ -32,7 +32,7 @@ public class Preguntas {
 		Opcion1 = opcion1;
 		Opcion2 = opcion2;
 		Opcion3 = opcion3;
-		Opcion4 = opcion4;
+		
 	}
 	
 	public Preguntas() {
@@ -82,13 +82,6 @@ public class Preguntas {
 	public void setOpcion3(String opcion3) {
 		Opcion3 = opcion3;
 	}
-	public String getOpcion4() {
-		return Opcion4;
-	}
-	public void setOpcion4(String opcion4) {
-		Opcion4 = opcion4;
-	}
-	
-	
+
 
 }
