@@ -22,7 +22,7 @@ public class PreguntasController {
 	private PreguntaService repositorio;
 
 	@GetMapping("/pregunta")
-	public Map obtenerPreguntas(@RequestBody Preguntas preguntas) {
+	public Map<String, Object> obtenerPreguntas(@RequestBody Preguntas preguntas) {
 		List<Preguntas> pregunta = repositorio.listarPreguntas();
 		Map<String, Object> respuesta = new HashMap<>();
 		List<Preguntas> response = new ArrayList<Preguntas>();
@@ -47,6 +47,37 @@ public class PreguntasController {
 		//datos = response;
 		return respuesta;
 	}
+	
+	@GetMapping("/categoria")
+	public Map<String, Object> ObtenerTodo() {
+		List<Preguntas> pregunta = repositorio.listarPreguntas();
+		List<String> categorias = new ArrayList<String>();
+		Map<String, Object> respuesta = new HashMap<>();
+		int i=0, cont=0, cont2 = 0;
+		
+		while(i<pregunta.size()){
+			//buscamos la categoria
+			
+			if(categorias.isEmpty()) {
+				categorias.add(pregunta.get(i).getCategoria().toString());
+				cont++;
+			}
+			while(cont2<categorias.size()) {
+				if(!categorias.get(cont2).equals(pregunta.get(i).getCategoria().toString())) {
+					categorias.add(pregunta.get(i).getCategoria().toString());
+				}
+			}
+			cont2=0;
+			i++;
+		}
+		respuesta.put("Categoria: ",categorias);
+		//datos = response;
+		return respuesta;
+		
+	}
+	
+	
+	
 	@PostMapping("/pregunta/registro")
 	public void GuardarPreguntas(@RequestBody Preguntas preguntas) {
 		List<Preguntas> pregunta = repositorio.listarPreguntas();
